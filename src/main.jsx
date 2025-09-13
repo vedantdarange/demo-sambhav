@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout.jsx";
 import LandingPage from "./components/Landingpage/Landingpage.jsx";
 import Events from "./components/Events/Events.jsx";
-import Leaderboard from "./components/Leaderboard/LeaderBoard.jsx";
+import Leaderboard from "./components/Leaderboard/Leaderboard.jsx";
 import About from "./components/About/About.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Faq from "./components/Faq/Faq.jsx";
