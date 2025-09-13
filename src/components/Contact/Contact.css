@@ -1,0 +1,337 @@
+/* src/components/Contact/Contact.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* Global & Core Layout */
+:root {
+  --color-blue: #06B4DF;
+  --color-orange: #AF6C44;
+  --color-light: #fff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0c0a09;
+  color: #e2e8f0;
+  overflow-x: hidden; /* Important for the full-bleed trick */
+}
+
+.contact-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  padding-top: 6.5rem;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: rgba(4, 2, 45, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-logo img {
+  height: 3.75rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-blue { color: #06b4df; }
+.nav-orange { color: #af6c44; }
+
+.nav-links a:hover {
+  filter: drop-shadow(0 0 6px rgba(6, 180, 223, 0.6));
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #06b4df;
+  background: none;
+  border: none;
+}
+
+/* Main Content - Title & Underline */
+.title-container {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title-container h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(to right, #f97316, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.underline {
+  width: 6rem;
+  height: 6px;
+  background-color: #38bdf8;
+  border-radius: 9999px;
+  margin: 0.5rem auto 0;
+}
+
+/* Main Content - Sections */
+.main-content {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+.map-container, .contact-info-container {
+  width: 50%;
+}
+
+.map-container {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.interactive-map {
+  width: 100%;
+  height: clamp(250px, 40vw, 400px);
+  border: 2px solid #38bdf8;
+  border-radius: 0.5rem;
+}
+
+.contact-info {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-item {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.contact-button {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #0ea5e9, #f97316);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  .map-container, .contact-info-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 4.5rem;
+    right: 1rem;
+    flex-direction: column;
+    background: rgba(4, 2, 45, 0.95);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    display: none;
+    transition: all 0.3s ease;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/*
+=================================
+  NEW REDESIGNED FOOTER STYLES
+=================================
+*/
+
+.footer {
+  background: rgba(4, 2, 45, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4rem 2rem 1.5rem;
+  border-top: 1px solid var(--color-blue, #06B4DF);
+  margin-top: auto;
+  
+  /* ✅ THIS IS THE FULL-BLEED TRICK */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  height: 4rem;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #a0aec0;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-light, #fff);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-blue, #06B4DF), var(--color-orange, #AF6C44));
+}
+
+.footer-column p {
+  color: #a0aec0;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-blue, #06B4DF);
+  padding-left: 5px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.social-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(50%) opacity(0.8);
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  filter: grayscale(0%) opacity(1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #718096;
+  font-size: 0.85rem;
+}
