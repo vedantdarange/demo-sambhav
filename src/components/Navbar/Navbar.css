@@ -1,4 +1,4 @@
-/* src/components/Navbar/Navbar.css - FINAL CORRECTED VERSION */
+/* src/components/Navbar/Navbar.css - FINAL FIX */
 
 .navbar {
   position: fixed;
@@ -12,18 +12,19 @@
   -webkit-backdrop-filter: blur(50px);
   height: 75px;
   display: flex;
-  /* ❌ REMOVED: justify-content: space-between; */
-  align-items: center;
+  align-items: center; /* This vertically aligns the logo and links */
   background: rgba(4, 2, 45, 0.7);
   z-index: 1000;
   border: 1px solid rgba(0, 255, 255, 0.2);
+
+  /* ✅ DELETED: justify-content: space-between; */
 }
 
 /* Logo */
 .nav-logo {
   display: flex;
   align-items: center;
-  /* ❌ REMOVED: height: 200px; (This was incorrect) */
+  /* ✅ DELETED: The incorrect height: 200px; */
 }
 
 .nav-logo .logo-text {
@@ -39,10 +40,12 @@
 /* Nav links */
 .nav-links {
   display: flex;
-  gap: 25px; /* Kept the smaller gap for better spacing */
+  gap: 25px; /* Kept the reduced gap for better spacing */
   list-style: none;
   transition: right 0.3s ease;
-  margin-left: auto; /* ✅ THIS IS THE KEY FIX: Pushes links to the right */
+  
+  /* ✅ THIS IS THE KEY FIX: Pushes the links to the far right */
+  margin-left: auto; 
 }
 
 .nav-links a {
@@ -52,6 +55,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
+  white-space: nowrap; /* Prevents text like "Leaderboard" from wrapping */
 }
 
 .nav-links li:nth-child(odd) a {
@@ -137,7 +141,7 @@
     background: rgba(4, 2, 45, 0.95);
     gap: 30px;
     border-left: 1px solid rgba(0, 255, 255, 0.2);
-    margin-left: 0; /* ✅ Reset margin for mobile view */
+    margin-left: 0; /* ✅ Reset the margin for the mobile menu */
   }
 
   .nav-links.open {
@@ -155,7 +159,7 @@
 /* Large screens */
 @media (min-width: 1200px) {
   .nav-links {
-    gap: 35px; /* Kept the smaller gap for better spacing */
+    gap: 35px; /* Kept the reduced gap */
   }
 
   .nav-links a {
@@ -170,3 +174,4 @@
     padding: 0 10px;
   }
 }
+
