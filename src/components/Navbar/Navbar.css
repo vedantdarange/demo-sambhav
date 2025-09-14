@@ -1,0 +1,182 @@
+/* src/components/Navbar/Navbar.css - FINAL FIX */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0; /* ❌ remove margin so navbar doesn’t shrink space */
+  padding: 0 25px; /* more breathing room */
+  border-radius: 0; /* optional: keep flat if full width */
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  height: 75px;
+  display: flex;
+  align-items: center;
+  background: rgba(4, 2, 45, 0.7);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2); /* border at bottom instead of radius */
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px; /* reduce gap so "Contact" fits */
+  margin-right:30px;
+  justify-content: space-evenly;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+
+.nav-logo .logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00ffff, #ff6b35);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 10px; /* Kept the reduced gap for better spacing */
+  list-style: none;
+  transition: right 0.3s ease;
+  
+  /* ✅ THIS IS THE KEY FIX: Pushes the links to the far right */
+  margin-left: 10px;; 
+  margin-right:20px;
+}
+
+.nav-links a {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap; /* Prevents text like "Leaderboard" from wrapping */
+}
+
+.nav-links li:nth-child(odd) a {
+  color: #00ffff;
+}
+
+.nav-links li:nth-child(even) a {
+  color: #ff6b35;
+}
+
+.nav-links a:hover {
+  text-shadow: 0 0 10px currentColor;
+  transform: translateY(-2px);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 80%;
+}
+
+/* ===================== */
+/* Hamburger Menu Button */
+/* ===================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+/* ===================== */
+/* Responsive Behavior   */
+/* ===================== */
+@media (max-width: 991px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(4, 2, 45, 0.95);
+    gap: 30px;
+    border-left: 1px solid rgba(0, 255, 255, 0.2);
+    margin-left: 0; /* ✅ Reset the margin for the mobile menu */
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 15px 25px;
+    width: 200px;
+    text-align: center;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .nav-links {
+    gap: 20px; /* Kept the reduced gap */
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+}
+
+/* Smallest devices */
+@media (max-width: 480px) {
+  .navbar {
+    margin: 3px;
+    padding: 0 10px;
+  }
+}
+

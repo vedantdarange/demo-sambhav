@@ -1,0 +1,288 @@
+/* Import external fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@600;700&display=swap');
+
+/* ===============================
+   BACKGROUND
+   =============================== */
+main {
+  margin: 0;
+  font-family: 'Orbitron', system-ui, Arial, sans-serif;
+  color: #E9F7FF;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #050722;  /* fallback */
+  padding-top: 30px; /* space for fixed navbar */
+  padding-bottom: 80px;
+}
+
+/* Color tokens */
+:root {
+  --cyan: #00E6FF;
+  --orange: #FF9544;
+  --amber: #F79B55;
+  --card-radius: 22px;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --shadow-deep: 0 15px 50px rgba(0, 0, 0, 0.45);
+}
+
+
+
+
+.nav-logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===============================
+   HEADER (centering fix)
+   =============================== */
+.about-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers horizontally */
+  justify-content: center;  /* centers vertically */
+  text-align: center;
+  margin: 0 auto 40px;      /* force block centering */
+}
+
+.about-title {
+  margin-bottom: 8px;
+  font-family: 'Orbitron', system-ui, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(42px, 5vw, 72px);
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #F79B55 63%, #00E6FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.12), 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.sambhav {
+  margin-top: 6px;
+  font-size: clamp(26px, 2.6vw, 42px);
+  font-weight: 800;
+  letter-spacing: 6px;
+  background: linear-gradient(90deg,
+      var(--cyan) 0%,
+      var(--cyan) 20%,
+      var(--amber) 60%,
+      var(--amber) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(0, 230, 255, .35)) drop-shadow(0 0 18px rgba(247, 155, 85, .25));
+}
+
+/* ===============================
+   Cards
+   =============================== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr; /* single column, cards stack vertically */
+  gap: 40px;
+  margin-top: 28px;
+}
+
+
+.card {
+  padding: 32px 34px 36px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-deep);
+  line-height: 1.45;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card p {
+  margin: 0;
+  font-family: 'Orbitron', system-ui, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #DFF6FF;
+}
+
+/* Vision (cyan glass) */
+.card--cyan {
+  background: radial-gradient(120% 140% at 20% 0%, rgba(0, 230, 255, 0.14) 0%, rgba(0, 230, 255, 0.10) 40%, rgba(0, 0, 0, 0.18) 100%);
+  border-color: rgba(0, 230, 255, 0.55);
+  box-shadow: 0 0 28px rgba(0, 230, 255, 0.25), inset 0 0 28px rgba(0, 230, 255, 0.10), var(--shadow-deep);
+}
+
+/* Mission (orange glass) */
+.card--orange {
+  background: radial-gradient(120% 140% at 80% 0%, rgba(255, 149, 68, 0.25) 0%, rgba(255, 149, 68, 0.20) 40%, rgba(0, 0, 0, 0.18) 100%);
+  border-color: rgba(255, 149, 68, 0.55);
+  box-shadow: 0 0 28px rgba(255, 149, 68, 0.25), inset 0 0 28px rgba(255, 149, 68, 0.12), var(--shadow-deep);
+}
+
+/* Card titles */
+.card-title {
+  margin: 0 0 20px;
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 800;
+  text-align: center;
+  position: relative;
+  font-family: 'Orbitron', system-ui, Arial, sans-serif;
+}
+.card-title.cyan {
+  color: var(--cyan);
+  text-shadow: 0 0 10px rgba(0, 230, 255, .65);
+}
+.card-title.orange {
+  color: var(--orange);
+  text-shadow: 0 0 10px rgba(255, 149, 68, .65);
+}
+.card-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 180px;
+  height: 3px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: .9;
+  box-shadow: 0 0 14px currentColor;
+}
+
+/* ===============================
+   Inspiration
+   =============================== */
+.inspo {
+  margin-top: 50px;
+  padding: 20px 34px;
+  max-width: 1200px;
+  border-radius: var(--card-radius);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-deep);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.inspo .heading {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--cyan) 46%, var(--orange) 54%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inspo .heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 220px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan) 46%, var(--orange) 54%);
+  box-shadow: 0 0 14px rgba(0, 230, 255, .5), 0 0 14px rgba(247, 155, 85, .3);
+}
+
+.inspo-inner {
+  display: grid;
+  grid-template-columns: auto 3px 1fr;
+  align-items: center;
+  gap: 28px;
+  max-width: 1200px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.inspo-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.inspo-photo {
+  width: 160px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+}
+.inspo-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inspo-name {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Orbitron', system-ui, Arial, sans-serif;
+  color: var(--cyan);
+  text-shadow: 0 0 8px rgba(0, 230, 255, .5);
+}
+
+.inspo-divider {
+  width: 3px;
+  height: 300px;
+  background: linear-gradient(180deg, rgba(0, 230, 255, 0.7), rgba(247, 155, 85, 0.65));
+  border-radius: 999px;
+}
+
+.inspo-text {
+  font-family: 'Orbitron', system-ui, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #E7F6FE;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.inspo-quote {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .inspo-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .inspo-divider {
+    display: none;
+  }
+  .inspo-text {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+
